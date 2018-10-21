@@ -4,11 +4,11 @@ class MovieSerializer < ActiveModel::Serializer
   has_many :movie_sessions
   has_many :halls
 
-  def movie_sessions
-    object.movie_sessions.where("start_time >= ?", Time.zone.now)
-  end
-
   def duration
     Time.at(object.duration).utc.strftime("%H:%M:%S")
+  end
+
+  def movie_sessions
+    object.movie_sessions.where("start_time >= ?", Time.zone.now)
   end
 end
