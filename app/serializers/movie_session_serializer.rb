@@ -3,6 +3,7 @@ class MovieSessionSerializer < ActiveModel::Serializer
 
   belongs_to :hall
 
+  
   def start_time
     Time.at(object.start_time).utc.strftime("%B %d, %H:%M")
   end
